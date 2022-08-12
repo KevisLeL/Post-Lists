@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PostList from '../Components/PostList';
-import MainHeader from '../Components/MainHeader';
-import Footer from '../Components/Footer';
+import MainHeader from '../Components/UIElements/MainHeader';
+import Footer from '../Components/UIElements/Footer';
 import Modal from "react-modal";
-import ModalForm from '../Components/ModalForm';
+import ModalForm from '../Components/UIElements/ModalForm';
+import Sidebar from '../Components/UIElements/Sidebar';
 
 import "./HomePage.scss";
 
@@ -17,8 +18,9 @@ const HomePage: React.FC = () => {
   
   const [loadedPosts, setLoadedPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [clickedIndex, setClickedIndex] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(false)
+  const [clickedIndex, setClickedIndex] = useState<number>(0)
 
   useEffect(() => {
     setIsLoading(true);
@@ -83,9 +85,15 @@ const HomePage: React.FC = () => {
       setLoadedPosts(newPosts);
     };
 
+    const onToggleSidebar = (evt: React.MouseEvent<HTMLButtonElement>) => {
+        evt.preventDefault();
+        setIsSideBarOpen(!isSideBarOpen);
+    }
+
   return (
     <React.Fragment>
-      <MainHeader />
+      <MainHeader onToggleSidebar={onToggleSidebar}/>
+      <Sidebar isOpen={isSideBarOpen}/>
       <main id="main">
         {isLoading && <p className="loader">Loading...</p>}
         {!isLoading && <PostList items={loadedPosts} onDelete={onDeletePost} onEdit={toggleModal}/>}

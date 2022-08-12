@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card';
+import Card from './UIElements/Card';
 import './PostItem.scss';
 
 interface Props {

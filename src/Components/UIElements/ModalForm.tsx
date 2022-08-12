@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Card from './Card';
-import {Post} from '../types'
+import {Post} from '../../types'
 import './ModalForm.scss';
 
 

@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import PostList from './Components/PostList';
+import React from 'react';
 import './App.scss';
+import MainHeader from './Components/MainHeader';
+import HomePage from './Pages/HomePage';
 
 function App() {
-  const [loadedPosts, setLoadedPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(posts => {
-      setLoadedPosts(posts);
-      console.log(posts)
-    });
-
-    setIsLoading(false);
-  }, []);
 
   return (
     <React.Fragment>
-      <header />
-      <main>
-        {isLoading && <p className="loader">Loading...</p>}
-        {!isLoading && <PostList items={loadedPosts} />}
-      </main>
+      <MainHeader />
+      <HomePage />
     </React.Fragment>
   );
 }

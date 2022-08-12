@@ -1,17 +1,23 @@
 import React from 'react';
-
 import PostItem from './PostItem';
+import {Post} from '../types'
 import './PostList.scss';
 
-const ProductList = (props:any) => {
+interface Props {
+  items: Array<Post>
+  onDelete: Function
+  onEdit: Function
+};
+
+const PostList: React.FC <Props> = (props) => {
   let content;
   if (!props.items || props.items.length === 0) {
-    content = <p>Could not find any products. Maybe create one?</p>;
+    content = <p>Could not find any posts.</p>;
   } else {
     content = (
       <ul className="post-list">
-        {props.items.map((post:any) => (
-          <PostItem key={post.id} userId={post.userId} title={post.title} body={post.body}/>
+        {props.items.map((post: Post, index: number) => (
+          <PostItem key={index} index={index} id={post.id} userId={post.userId} title={post.title} body={post.body} onDelete={props.onDelete} onEdit={props.onEdit}/>
         ))}
       </ul>
     );
@@ -20,4 +26,4 @@ const ProductList = (props:any) => {
   return <section id="posts">{content}</section>;
 };
 
-export default ProductList;
+export default PostList;

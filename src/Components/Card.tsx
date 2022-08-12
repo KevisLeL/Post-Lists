@@ -1,10 +1,14 @@
 import React from 'react';
-
 import './Card.scss';
 
-const Card = (props:any) => {
+interface Props {
+className: string
+children?: React.ReactNode
+}
+
+const Card: React.FC<Props>= (props) => {
   return (
-    <div className={`card ${props.className}`} style={props.style}>
+    <div className={`card ${props.className}`}>
       {props.children}
     </div>
   );

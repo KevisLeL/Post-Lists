@@ -1,13 +1,19 @@
 import React from 'react';
-import './App.scss';
-import MainHeader from './Components/UIElements/MainHeader';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
+import LoginPage from './Pages/LoginPage';
 
-function App() {
+import './App.scss';
 
+const App: React.FC = () => {
   return (
     <React.Fragment>
-      <HomePage />
+      <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/homePage" element={<HomePage />} />
+      </Routes>
+      </BrowserRouter>
     </React.Fragment>
   );
 }

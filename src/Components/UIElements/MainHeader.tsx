@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 import './MainHeader.scss';
 
 interface Props {
@@ -14,9 +14,9 @@ const MainHeader: React.FC<Props> = (props) => {
         <span />
         <span />
       </button>
-      <h1 className="main-header__title">
-        CLEVERPY
-      </h1>
+      <Link  to='/homePage'>
+        <h1 className="main-header__title">CLEVERPY</h1>
+      </Link>
     </header>
    )
 }; 

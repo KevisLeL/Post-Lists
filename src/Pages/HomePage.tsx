@@ -5,32 +5,31 @@ import Footer from '../Components/UIElements/Footer';
 import Modal from "react-modal";
 import ModalForm from '../Components/UIElements/ModalForm';
 import Sidebar from '../Components/UIElements/Sidebar';
+import store from 'src/State/store';
+import { ActionCreators } from '../State/actions';
+import { Post } from '../types';
 
 import "./HomePage.scss";
 
 const HomePage: React.FC = () => {
-  interface Post {
-    id: number
-    userId: number
-    body: string
-    title: string
-  }
   
   const [loadedPosts, setLoadedPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(false)
-  const [clickedIndex, setClickedIndex] = useState<number>(0)
+  const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(false);
+  const [clickedIndex, setClickedIndex] = useState<number>(0);
 
+  const state = store.getState();
+  
   useEffect(() => {
     setIsLoading(true);
 
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
-    .then(posts => {
-      setLoadedPosts(posts);
+    .then(response => {
+      store.dispatch(ActionCreators.getPosts(response));
+      setLoadedPosts(response)
     });
-
     setIsLoading(false);
   }, []);
 
@@ -96,7 +95,7 @@ const HomePage: React.FC = () => {
       <Sidebar isOpen={isSideBarOpen}/>
       <main id="main">
         {isLoading && <p className="loader">Loading...</p>}
-        {!isLoading && <PostList items={loadedPosts} onDelete={onDeletePost} onEdit={toggleModal}/>}
+        {!isLoading && state.user.isLogged && <PostList items={loadedPosts} onDelete={onDeletePost} onEdit={toggleModal}/>}
         <Modal
         isOpen={isModalOpen}
         onRequestClose={toggleModal}

@@ -1,0 +1,31 @@
+.authentication {
+    width: 90%;
+    max-width: 25rem;
+    margin: 7rem auto;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    background: white;  
+}
+
+  .login__content {
+    padding: 0;
+    position: relative;
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: "Varela Round", sans-serif;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .login__label {
+    color: black
+  }

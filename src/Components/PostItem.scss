@@ -20,6 +20,9 @@
   .post-item__title {
     color: #ffff;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
   }
 
   .post-item__userId {
@@ -34,6 +37,9 @@
     padding: 0.5rem;
     border: 0.1rem solid rgb(209, 180, 14);
     border-radius: 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
   }
 
   @mixin post-item__button {

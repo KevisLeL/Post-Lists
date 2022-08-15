@@ -1,6 +1,13 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Post-Lists
+SPA created using React, Typescrypt and SCSS.
+Some Links or functionalities may not work as expected.
+
+LogIn by entering any false email or password.
+Sidebar can be closed by clicking on the three lines at the Header.
+Edit or Delete Posts by clicking on the corresponding card buttons.
 
 ## Available Scripts
 

@@ -17,25 +17,25 @@ const Sidebar: React.FC<Props> = (props) => {
                    </p>
                </li>
                <li>
-                   <a href="">Dashboard</a>
+                   <p>SideBar Links</p>
                </li>
                <li>
-                   <a href="">Shortcuts</a>
+                   <p>May not</p>
                </li>
                <li>
-                   <a href="">Overview</a>
+                   <p>Redirect</p>
                </li>
                <li>
-                   <a href="">Events</a>
+                   <p>To anywhere</p>
                </li>
                <li>
-                   <a href="">About</a>
+                   <p>Close Sidebar</p>
                </li>
                <li>
-                   <a href="">Services</a>
+                   <p>by clicking</p>
                </li>
                <li>
-                   <a href="">Contact</a>
+                   <p>on the three lines</p>
                </li>
            </ul>
        </div>
